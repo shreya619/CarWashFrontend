@@ -1,0 +1,50 @@
+<p>order works!</p>
+<div class="order-container">
+  <h2>Place New Order</h2>
+  <form (ngSubmit)="placeOrder()">
+    <input [(ngModel)]="newOrder.packageType" name="packageType" placeholder="Package Type" required>
+    <input [(ngModel)]="newOrder.addOns" name="addOns" placeholder="Add-Ons">
+    <input [(ngModel)]="newOrder.address" name="address" placeholder="Address" required>
+    <input [(ngModel)]="newOrder.dateTime" name="dateTime" type="datetime-local" required>
+    <input [(ngModel)]="newOrder.washerName" name="washerName" placeholder="Washer Name">
+    <input [(ngModel)]="newOrder.washerEmail" name="washerEmail" placeholder="Washer Email">
+    <input [(ngModel)]="newOrder.washerId" name="washerId" type="number" placeholder="Washer ID">
+    <button type="submit">Place Order</button>
+  </form>
+
+  <h2>My Orders</h2>
+  <div class="filters">
+    <button (click)="filterOrders('unassigned')">Unassigned</button>
+    <button (click)="filterOrders('current')">Current</button>
+    <button (click)="filterOrders('past')">Past</button>
+  </div>
+
+  <table *ngIf="orders.length > 0">
+    <thead>
+      <tr>
+        <th>Package</th>
+        <th>Add-Ons</th>
+        <th>Address</th>
+        <th>Date & Time</th>
+        <th>Washer</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>{{ order.packageType }}</td>
+        <td>{{ order.addOns }}</td>
+        <td>{{ order.address }}</td>
+        <td>{{ order.dateTime | date:'short' }}</td>
+        <td>{{ order.washerName || 'Not Assigned' }}</td>
+        <td>{{ order.status }}</td>
+        <td>
+          <button (click)="deleteOrder(order.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="orders.length === 0">No orders available for this category.</p>
+</div>

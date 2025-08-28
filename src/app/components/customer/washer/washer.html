@@ -1,0 +1,9 @@
+<p>washer works!</p>
+<h2>Available Washers</h2>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<div *ngFor="let washer of washers" class="washer-card">
+  <h3>{{ washer.username }}</h3>
+  <p>Email: {{ washer.email }}</p>
+  <p>Phone: {{ washer.phoneNo }}</p>
+</div>

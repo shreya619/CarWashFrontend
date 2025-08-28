@@ -1,0 +1,64 @@
+<div class="feedback-container">
+  <h2>Washer Feedbacks</h2>
+
+  <div class="messages">
+    <div *ngIf="message" class="success" (click)="clearMessages()">{{ message }}</div>
+    <div *ngIf="error" class="error" (click)="clearMessages()">{{ error }}</div>
+  </div>
+
+  <div class="search-filters">
+    <input type="number" placeholder="Search by Feedback ID" [(ngModel)]="feedbackIdSearch">
+    <button (click)="searchByFeedbackId()">Search</button>
+
+    <input type="number" placeholder="Search by Order ID" [(ngModel)]="orderIdSearch">
+    <button (click)="searchByOrderId()">Search</button>
+
+    <button (click)="loadAllFeedbacks()">All Feedbacks</button>
+  </div>
+<!--
+  <div class="form-section">
+    <h3>{{ editMode ? 'Edit Feedback' : 'Submit Feedback' }}</h3>
+    <input type="number" placeholder="Order ID" [(ngModel)]="newFeedback.orderId">
+    <input type="number" placeholder="Water Saved (liters)" [(ngModel)]="newFeedback.waterSaved">
+    <textarea placeholder="Notes" [(ngModel)]="newFeedback.notes"></textarea>
+    <button *ngIf="!editMode" (click)="submitFeedback()">Submit</button>
+    <button *ngIf="editMode" (click)="updateFeedback()">Update</button>
+  </div>
+-->
+<div class="form-section">
+  <h3>{{ editMode ? 'Edit Feedback' : 'Submit Feedback' }}</h3>
+  <input type="number" placeholder="Order ID" [(ngModel)]="newFeedback.orderId" [readonly]="editMode">
+  <input type="number" placeholder="Water Saved (liters)" [(ngModel)]="newFeedback.waterSaved">
+  <textarea placeholder="Notes" [(ngModel)]="newFeedback.notes"></textarea>
+  <button *ngIf="!editMode" (click)="submitFeedback()">Submit</button>
+  <button *ngIf="editMode" (click)="updateFeedback()">Update</button>
+</div>
+
+
+  <table *ngIf="feedbacks.length">
+    <thead>
+      <tr>
+        <th>Feedback ID</th>
+        <th>Order ID</th>
+        <th>Water Saved</th>
+        <th>Notes</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fb of feedbacks">
+        <td>{{ fb.id }}</td>
+        <td>{{ fb.orderId }}</td>
+        <td>{{ fb.waterSaved }}</td>
+        <td>{{ fb.notes }}</td>
+        <td>
+          <button (click)="startEdit(fb)">Edit</button>
+          <button (click)="deleteFeedback(fb.id!)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!feedbacks.length && !isLoading" class="no-data">No feedback available</div>
+  <div *ngIf="isLoading" class="loading">Loading feedbacks...</div>
+</div>

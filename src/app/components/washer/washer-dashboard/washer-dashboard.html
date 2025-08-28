@@ -1,0 +1,38 @@
+<div class="washer-dashboard">
+  <aside class="sidebar">
+    <h2 class="logo">🚗 Washer Panel</h2>
+    <nav>
+      <ul>
+        <li routerLink="update" routerLinkActive="active">
+          <i class="fas fa-user-edit"></i> Update Washer
+        </li>
+        <li routerLink="delete" routerLinkActive="active">
+          <i class="fas fa-user-times"></i> Delete Washer
+        </li>
+        <li routerLink="invoice" routerLinkActive="active">
+          <i class="fas fa-file-invoice"></i> Send Invoice
+        </li>
+        <li routerLink="orders" routerLinkActive="active">
+          <i class="fas fa-box"></i> Orders
+        </li>
+        <li routerLink="feedback" routerLinkActive="active">
+          <i class="fas fa-comment-alt"></i> Feedback
+        </li>
+        <li routerLink="leaderboard" routerLinkActive="active">
+          <i class="fas fa-trophy"></i> Leaderboard
+        </li>
+        <li routerLink="rating" routerLinkActive="active">
+          <i class="fas fa-star"></i> Ratings
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <div class="content-header">
+      <h1>Welcome, Washer</h1>
+      <p>Select an option from the menu to manage your services.</p>
+    </div>
+    <router-outlet></router-outlet>
+  </main>
+</div>

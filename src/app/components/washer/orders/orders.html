@@ -1,0 +1,47 @@
+<div class="orders-container">
+  <h2>My Orders</h2>
+
+  <div class="tabs">
+    <button [class.active]="type === 'current'" (click)="changeType('current')">Current</button>
+    <button [class.active]="type === 'past'" (click)="changeType('past')">Past</button>
+    <button [class.active]="type === 'unassigned'" (click)="changeType('unassigned')">Unassigned</button>
+  </div>
+
+  <div *ngIf="isLoading" class="loading">Loading...</div>
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <table *ngIf="!isLoading && orders.length">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Customer</th>
+        <th>Phone</th>
+        <th>Package</th>
+        <th>Add-Ons</th>
+        <th>Address</th>
+        <th>Date & Time</th>
+        <th>Status</th>
+        <th>Update Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>{{ order.orderId }}</td>
+        <td>{{ order.customerName }}</td>
+        <td>{{ order.phoneNo }}</td>
+        <td>{{ order.packageType }}</td>
+        <td>{{ order.addOns || 'None' }}</td>
+        <td>{{ order.address }}</td>
+        <td>{{ order.dateTime | date:'short' }}</td>
+        <td>{{ order.status }}</td>
+        <td>
+          <select [(ngModel)]="order.status" (change)="updateStatus(order, order.status)">
+            <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!isLoading && !orders.length" class="no-data">No orders found.</div>
+</div>

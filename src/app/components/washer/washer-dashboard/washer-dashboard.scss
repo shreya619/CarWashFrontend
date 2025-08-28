@@ -1,0 +1,69 @@
+.washer-dashboard {
+  display: flex;
+  height: 100vh;
+  background-color: #f9f9f9;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 260px;
+  background: linear-gradient(180deg, #1e3c72, #2a5298);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+.sidebar .logo {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar nav ul li {
+  padding: 12px 20px;
+  margin: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.sidebar nav ul li i {
+  font-size: 1.1rem;
+}
+
+.sidebar nav ul li:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(5px);
+}
+
+.sidebar nav ul li.active {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Main Content Styling */
+.content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.content-header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+}
+
+.content-header p {
+  color: #555;
+}

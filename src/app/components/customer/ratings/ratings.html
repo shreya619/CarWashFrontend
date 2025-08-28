@@ -1,0 +1,22 @@
+<p>ratings works!</p>
+<h2>Rate a Washer</h2>
+
+<div class="rating-form">
+  <label>Order ID:</label>
+  <input type="number" [(ngModel)]="orderId">
+  
+  <label>Rating (1-10):</label>
+  <input type="number" [(ngModel)]="newRating.rating" min="1" max="10">
+
+  <label>Review:</label>
+  <textarea [(ngModel)]="newRating.review"></textarea>
+
+  <button (click)="submitRating()">Submit Rating</button>
+</div>
+
+<h3>All Washer Ratings</h3>
+<ul>
+  <li *ngFor="let r of ratings">
+    {{ r.washerEmail }} - Avg: {{ r.averageRating }} - Total Ratings: {{ r.totalRatings }}
+  </li>
+</ul>

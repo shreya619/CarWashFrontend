@@ -1,0 +1,154 @@
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-background">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content fade-in">
+        <h1 class="hero-title">
+          Keep Your Car <span class="highlight">Spotless</span>
+        </h1>
+        <p class="hero-subtitle">
+          Professional car washing services delivered to your doorstep. 
+          Book online and let us take care of the rest.
+        </p>
+        <div class="hero-buttons">
+          <app-cta-button 
+            text="Book Now" 
+            type="primary" 
+            size="large"
+            class="hero-cta">
+          </app-cta-button>
+          <app-cta-button 
+            text="Learn More" 
+            type="outline" 
+            size="large"
+            routerLink="/about">
+          </app-cta-button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">5000+</div>
+            <div class="stat-label">Happy Customers</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">99%</div>
+            <div class="stat-label">Satisfaction Rate</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Available</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">
+          Choose from our range of professional car cleaning services
+        </p>
+      </div>
+      <div class="features-grid">
+        <app-feature-card 
+          *ngFor="let feature of features; trackBy: trackByFeature"
+          [icon]="feature.icon"
+          [title]="feature.title"
+          [description]="feature.description"
+          [price]="feature.price">
+        </app-feature-card>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="how-it-works-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">
+          Simple steps to get your car cleaned
+        </p>
+      </div>
+      <div class="steps-container">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Book Online</h3>
+            <p>Schedule your service through our easy-to-use platform</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>We Come To You</h3>
+            <p>Our professional team arrives at your location</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Enjoy Clean Car</h3>
+            <p>Relax while we make your car spotless</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <p class="section-subtitle">
+          Real feedback from satisfied customers
+        </p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card" *ngFor="let testimonial of testimonials">
+          <div class="testimonial-header">
+            <div class="customer-avatar">{{ testimonial.image }}</div>
+            <div class="customer-info">
+              <h4 class="customer-name">{{ testimonial.name }}</h4>
+              <div class="rating">
+                <span class="star" *ngFor="let star of [1,2,3,4,5]">⭐</span>
+              </div>
+            </div>
+          </div>
+          <p class="testimonial-text">{{ testimonial.comment }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Ready to Get Started?</h2>
+        <p class="cta-subtitle">
+          Book your car wash today and experience the difference
+        </p>
+        <div class="cta-buttons">
+          <app-cta-button 
+            text="Book Service Now" 
+            type="primary" 
+            size="large">
+          </app-cta-button>
+          <app-cta-button 
+            text="Contact Us" 
+            type="secondary" 
+            size="large"
+            routerLink="/contact">
+          </app-cta-button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

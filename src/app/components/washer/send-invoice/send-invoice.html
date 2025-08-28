@@ -1,0 +1,69 @@
+<p>send-invoice works!</p>
+<div class="invoice-container">
+  <h2>Send Invoice</h2>
+
+  <div class="form-group">
+    <label>Order ID</label>
+    <input type="text" [(ngModel)]="invoice.orderId" />
+  </div>
+
+  <div class="form-group">
+    <label>Customer Name</label>
+    <input type="text" [(ngModel)]="invoice.customerName" />
+  </div>
+
+  <div class="form-group">
+    <label>Customer Email</label>
+    <input type="email" [(ngModel)]="invoice.customerEmail" />
+  </div>
+
+  <div class="form-group">
+    <label>Customer ID</label>
+    <input type="text" [(ngModel)]="invoice.customerId" />
+  </div>
+
+  <div class="form-group">
+    <label>Washer Name</label>
+    <input type="text" [(ngModel)]="invoice.washerName" />
+  </div>
+
+  <div class="form-group">
+    <label>Washer ID</label>
+    <input type="text" [(ngModel)]="invoice.washerId" />
+  </div>
+
+  <div class="form-group">
+    <label>Package Name</label>
+    <input type="text" [(ngModel)]="invoice.packageName" />
+  </div>
+
+  <div class="form-group">
+    <label>Package Amount</label>
+    <input type="number" [(ngModel)]="invoice.packageAmount" />
+  </div>
+
+  <div class="form-group">
+    <label>Tax</label>
+    <input type="number" [(ngModel)]="invoice.tax" />
+  </div>
+
+  <div class="form-group">
+    <label>Total Amount</label>
+    <input type="number" [(ngModel)]="invoice.totalAmount" />
+  </div>
+
+  <div class="form-group">
+    <label>Add-ons</label>
+    <div *ngFor="let addon of Object.keys(invoice.addons)">
+      {{ addon }} - ₹{{ invoice.addons[addon] }}
+      <button (click)="removeAddon(addon)">Remove</button>
+    </div>
+    <input #addonName placeholder="Addon name" />
+    <input #addonPrice type="number" placeholder="Price" />
+    <button (click)="addAddon(addonName.value, addonPrice.valueAsNumber)">Add Addon</button>
+  </div>
+
+  <button (click)="onSendInvoice()">Send Invoice</button>
+
+  <p class="message" *ngIf="message">{{ message }}</p>
+</div>

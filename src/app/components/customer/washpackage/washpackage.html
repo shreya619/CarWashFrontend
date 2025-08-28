@@ -1,0 +1,16 @@
+<div class="packages-container">
+  <h2>Available Wash Packages</h2>
+
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div class="package-list">
+    <div *ngFor="let pkg of washPackages" class="package-card">
+      <span class="badge" [ngClass]="pkg.packageType.toLowerCase()">
+        {{ pkg.packageType }}
+      </span>
+      <h3>{{ pkg.packageName }}</h3>
+      <p>{{ pkg.details }}</p>
+      <p class="price">Price: ₹{{ pkg.cost }}</p>
+    </div>
+  </div>
+</div>

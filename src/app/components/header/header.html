@@ -1,0 +1,113 @@
+
+<!--
+
+<header class="header">
+  <div class="container">
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a routerLink="/" class="brand-link">
+          <div class="logo-container">
+            <div class="logo-icon">🚗</div>
+            <span class="brand-text">CleanCar</span>
+          </div>
+        </a>
+      </div>
+      
+      <div class="navbar-nav">
+        <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <a routerLink="/about" class="nav-link" routerLinkActive="active">About</a>
+        <a routerLink="/contact" class="nav-link" routerLinkActive="active">Contact</a>
+      </div>
+      
+      <div class="navbar-actions">
+        <div class="auth-buttons">
+          <div class="dropdown" [class.open]="isRegisterDropdownOpen">
+            <button class="btn btn-outline auth-btn" (click)="toggleRegisterDropdown()">
+              Register
+              <span class="dropdown-arrow">▼</span>
+            </button>
+            <app-register-dropdown 
+              *ngIf="isRegisterDropdownOpen" 
+              (closeDropdown)="closeDropdowns()">
+            </app-register-dropdown>
+          </div>
+          
+          <div class="dropdown" [class.open]="isLoginDropdownOpen">
+            <button class="btn btn-primary auth-btn" (click)="toggleLoginDropdown()">
+              Login
+              <span class="dropdown-arrow">▼</span>
+            </button>
+            <app-login-dropdown 
+              *ngIf="isLoginDropdownOpen" 
+              (closeDropdown)="closeDropdowns()">
+            </app-login-dropdown>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+-->
+
+<header class="header">
+  <div class="container">
+    <nav class="navbar">
+      <!-- Brand Logo -->
+      <div class="navbar-brand">
+        <a routerLink="/" class="brand-link">
+          <div class="logo-container">
+            <div class="logo-icon">🚗</div>
+            <span class="brand-text">CleanCar</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="navbar-nav">
+        <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        <a routerLink="/about" class="nav-link" routerLinkActive="active">About</a>
+        <a routerLink="/contact" class="nav-link" routerLinkActive="active">Contact</a>
+      </div>
+
+      <!-- Auth Buttons -->
+      <div class="navbar-actions">
+        <div class="auth-buttons">
+
+          <!-- Show Login/Register if not logged in -->
+          <ng-container *ngIf="!authService.isLoggedIn(); else loggedIn">
+            <!-- Register Dropdown -->
+            <div class="dropdown" [class.open]="isRegisterDropdownOpen">
+              <button class="btn btn-outline auth-btn" (click)="toggleRegisterDropdown()">
+                Register
+                <span class="dropdown-arrow">▼</span>
+              </button>
+              <app-register-dropdown 
+                *ngIf="isRegisterDropdownOpen" 
+                (closeDropdown)="closeDropdowns()">
+              </app-register-dropdown>
+            </div>
+
+            <!-- Login Dropdown -->
+            <div class="dropdown" [class.open]="isLoginDropdownOpen">
+              <button class="btn btn-primary auth-btn" (click)="toggleLoginDropdown()">
+                Login
+                <span class="dropdown-arrow">▼</span>
+              </button>
+              <app-login-dropdown 
+                *ngIf="isLoginDropdownOpen" 
+                (closeDropdown)="closeDropdowns()">
+              </app-login-dropdown>
+            </div>
+          </ng-container>
+
+          <!-- Show Logout if logged in -->
+          <ng-template #loggedIn>
+            <button class="btn btn-danger auth-btn" (click)="logout()">Logout</button>
+          </ng-template>
+
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

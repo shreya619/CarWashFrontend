@@ -1,0 +1,37 @@
+<h2>Manage Wash Packages</h2>
+
+<form (ngSubmit)="savePackage()" class="package-form">
+  <input [(ngModel)]="newPackage.packageName" name="packageName" placeholder="Package Name" required />
+  <input [(ngModel)]="newPackage.packageType" name="packageType" placeholder="Package Type" required />
+  <input [(ngModel)]="newPackage.details" name="details" placeholder="Details" required />
+  <input [(ngModel)]="newPackage.cost" name="cost" type="number" placeholder="Cost" required />
+  <button type="submit">{{ editId !== null ? 'Update' : 'Create' }}</button>
+  <button type="button" (click)="resetForm()" *ngIf="editId !== null">Cancel</button>
+</form>
+
+<table class="package-table">
+  <thead>
+    <tr>
+      <th>ID</th> <!-- ✅ Add this line -->
+      <th>Package Name</th>
+      <th>Type</th>
+      <th>Details</th>
+      <th>Cost</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pkg of packages">
+      <td>{{ pkg.id }}</td> <!-- ✅ Add this line -->
+      <td>{{ pkg.packageName }}</td>
+      <td>{{ pkg.packageType }}</td>
+      <td>{{ pkg.details }}</td>
+      <td>₹{{ pkg.cost }}</td>
+      <td>
+        <button (click)="edit(pkg)">Edit</button>
+        <button (click)="delete(pkg.id!)">Delete</button>
+        <button (click)="getById(pkg.id!)">View</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

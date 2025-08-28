@@ -1,0 +1,40 @@
+.delete-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: #fff3f3;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+  h2 {
+    text-align: center;
+    color: #b00020;
+  }
+
+  p {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    background: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background: #b71c1c;
+    }
+  }
+
+  .message {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #b00020;
+    text-align: center;
+  }
+}

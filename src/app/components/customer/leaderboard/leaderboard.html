@@ -1,0 +1,29 @@
+<p>leaderboard works!</p>
+<div class="leaderboard-container">
+  <h2>Top Washers Leaderboard</h2>
+
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <table *ngIf="leaderboard.length > 0; else noData">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Email</th>
+        <th>Average Rating</th>
+        <th>Total Ratings</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let washer of leaderboard">
+        <td>{{ washer.rank }}</td>
+        <td>{{ washer.washerEmail }}</td>
+        <td>{{ washer.averageRating | number: '1.1-2' }}</td>
+        <td>{{ washer.totalRatings }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noData>
+    <p>No leaderboard data available.</p>
+  </ng-template>
+</div>

@@ -1,0 +1,11 @@
+<p>feedback works!</p>
+<h2>Feedback for Order #{{ orderId }}</h2>
+<div *ngIf="error" class="error">{{ error }}</div>
+<div *ngIf="feedback; else noFeedback">
+  <p><strong>Washer:</strong> {{ feedback.washerEmail }}</p>
+  <p><strong>Water Saved:</strong> {{ feedback.waterSaved }} liters</p>
+  <p><strong>Notes:</strong> {{ feedback.notes }}</p>
+</div>
+<ng-template #noFeedback>
+  <p>No feedback available for this order.</p>
+</ng-template>

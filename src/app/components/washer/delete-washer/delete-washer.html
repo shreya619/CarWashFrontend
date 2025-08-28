@@ -1,0 +1,7 @@
+<p>delete-washer works!</p>
+<div class="delete-container">
+  <h2>Delete Account</h2>
+  <p>Are you sure you want to delete your account? This action cannot be undone.</p>
+  <button (click)="onDelete()">Delete My Account</button>
+  <p class="message" *ngIf="message">{{ message }}</p>
+</div>

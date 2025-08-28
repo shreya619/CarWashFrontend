@@ -1,0 +1,134 @@
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-content">
+    <h1>About CarWash Pro</h1>
+    <p>Your trusted partner for premium car care services since 2019</p>
+  </div>
+  <div class="hero-image">
+    <img src="assets/about-hero.jpg" alt="Car washing service">
+  </div>
+</section>
+
+<!-- Our Story Section -->
+<section class="story-section">
+  <div class="container">
+    <div class="story-content">
+      <div class="story-text">
+        <h2>Our Story</h2>
+        <p>
+          Founded in 2019, CarWash Pro began as a small family business with a simple mission: 
+          to provide exceptional car care services that exceed customer expectations. What started 
+          as a single location has grown into a trusted network of professional car wash services 
+          across the region.
+        </p>
+        <p>
+          We believe that every car deserves the best care, which is why we use only premium products 
+          and employ skilled professionals who take pride in their work. Our commitment to quality, 
+          convenience, and customer satisfaction has made us the preferred choice for thousands of 
+          car owners.
+        </p>
+      </div>
+      <div class="story-image">
+        <img src="assets/our-story.jpg" alt="Our story">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission & Vision Section -->
+<section class="mission-section">
+  <div class="container">
+    <div class="mission-grid">
+      <div class="mission-card">
+        <div class="mission-icon">🎯</div>
+        <h3>Our Mission</h3>
+        <p>To provide exceptional car care services that save our customers time while delivering 
+           superior results through innovative techniques and eco-friendly practices.</p>
+      </div>
+      <div class="mission-card">
+        <div class="mission-icon">👁️</div>
+        <h3>Our Vision</h3>
+        <p>To become the leading car care service provider, known for excellence, reliability, 
+           and customer satisfaction in every community we serve.</p>
+      </div>
+      <div class="mission-card">
+        <div class="mission-icon">💎</div>
+        <h3>Our Values</h3>
+        <p>Quality, integrity, customer focus, and environmental responsibility guide everything 
+           we do in our commitment to excellence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Overview Section -->
+<section class="services-overview">
+  <div class="container">
+    <h2>What We Offer</h2>
+    <div class="services-grid">
+      <div class="service-card" *ngFor="let service of services">
+        <div class="service-icon">{{ service.icon }}</div>
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card" *ngFor="let stat of stats">
+        <h3>{{ stat.number }}</h3>
+        <p>{{ stat.label }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section class="team-section">
+  <div class="container">
+    <h2>Meet Our Team</h2>
+    <div class="team-grid">
+      <div class="team-card" *ngFor="let member of teamMembers">
+        <div class="team-image">
+          <img [src]="member.image" [alt]="member.name">
+        </div>
+        <h3>{{ member.name }}</h3>
+        <p class="position">{{ member.position }}</p>
+        <p class="description">{{ member.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="why-choose-section">
+  <div class="container">
+    <h2>Why Choose CarWash Pro?</h2>
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon">⭐</div>
+        <h3>Premium Quality</h3>
+        <p>We use only the finest products and equipment to ensure your car receives the best care possible.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🕒</div>
+        <h3>Convenient Service</h3>
+        <p>Multiple locations and flexible scheduling to fit your busy lifestyle.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🌱</div>
+        <h3>Eco-Friendly</h3>
+        <p>Environmentally conscious practices with biodegradable products and water conservation.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">👥</div>
+        <h3>Expert Team</h3>
+        <p>Trained professionals who care about your car as much as you do.</p>
+      </div>
+    </div>
+  </div>
+</section>

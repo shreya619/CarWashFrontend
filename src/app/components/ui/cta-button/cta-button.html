@@ -1,0 +1,22 @@
+<a *ngIf="routerLink" 
+   [routerLink]="routerLink"
+   class="cta-button"
+   [class]="'btn-' + type + ' btn-' + size"
+   [attr.disabled]="disabled">
+  {{ text }}
+</a>
+
+<a *ngIf="href && !routerLink" 
+   [href]="href"
+   class="cta-button"
+   [class]="'btn-' + type + ' btn-' + size"
+   [attr.disabled]="disabled">
+  {{ text }}
+</a>
+
+<button *ngIf="!routerLink && !href"
+        class="cta-button"
+        [class]="'btn-' + type + ' btn-' + size"
+        [disabled]="disabled">
+  {{ text }}
+</button>

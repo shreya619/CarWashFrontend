@@ -1,0 +1,29 @@
+<div class="leaderboard-container">
+  <h2>Washer Leaderboard</h2>
+
+  <div *ngIf="isLoading" class="loading">Loading...</div>
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <table *ngIf="!isLoading && leaderboard.length">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Washer Email</th>
+        <th>Total Ratings</th>
+        <th>Average Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let washer of leaderboard">
+        <td>{{ washer.rank }}</td>
+        <td>{{ washer.washerEmail }}</td>
+        <td>{{ washer.totalRatings }}</td>
+        <td>{{ washer.averageRating | number:'1.1-1' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!isLoading && !leaderboard.length" class="no-data">
+    No leaderboard data available.
+  </div>
+</div>

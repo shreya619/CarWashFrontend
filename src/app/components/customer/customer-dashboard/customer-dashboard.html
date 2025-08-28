@@ -1,0 +1,23 @@
+<p>WELCOME CUSTOMER!</p>
+<div class="dashboard">
+  <aside class="sidebar">
+    <ul>
+      <li><a routerLink="profile" routerLinkActive="active">My Profile</a></li>
+            <li><a routerLink="leaderboard" routerLinkActive="active">Leaderboard</a></li> <!-- ✅ NEW MENU ITEM -->
+      <li><a routerLink="washpackage" routerLinkActive="active">Wash Packages</a></li> <!-- ✅ New -->
+      <li><a routerLink="washer" routerLinkActive="active">Washers</a></li> <!-- ✅ NEW LINK -->
+<li><a routerLink="feedback" routerLinkActive="active">Feedback</a></li>
+  <li><a routerLink="ratings" routerLinkActive="active">Rate Washer</a></li>
+  <li><a routerLink="orders" routerLinkActive="active">My Orders</a></li>
+      <li><a routerLink="payment" routerLinkActive="active">Payments</a></li>
+      <!-- Add more links here for orders, payments, etc -->
+    </ul>
+  </aside>
+
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+
+
+

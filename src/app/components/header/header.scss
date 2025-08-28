@@ -1,0 +1,116 @@
+.header {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  height: 80px;
+}
+
+.navbar-brand {
+  .brand-link {
+    text-decoration: none;
+    color: white;
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      
+      .logo-icon {
+        font-size: 2rem;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+      }
+      
+      .brand-text {
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+  }
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 2rem;
+  
+  .nav-link {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      color: #3b82f6;
+      background: rgba(59, 130, 246, 0.1);
+    }
+    
+    &.active {
+      color: #3b82f6;
+      background: rgba(59, 130, 246, 0.15);
+    }
+  }
+}
+
+.navbar-actions {
+  .auth-buttons {
+    display: flex;
+    gap: 1rem;
+    
+    .dropdown {
+      position: relative;
+      
+      .auth-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        min-width: 120px;
+        justify-content: center;
+        
+        .dropdown-arrow {
+          font-size: 0.8rem;
+          transition: transform 0.3s ease;
+        }
+      }
+      
+      &.open .dropdown-arrow {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+    height: auto;
+    padding: 1rem 0;
+  }
+  
+  .navbar-nav {
+    gap: 1rem;
+  }
+  
+  .auth-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

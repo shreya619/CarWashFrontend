@@ -1,0 +1,97 @@
+<div class="dropdown-content slide-down">
+  <div class="dropdown-header">
+    <h3>Create Account</h3>
+    <button class="close-btn" (click)="close()">×</button>
+  </div>
+  
+  <div class="role-selection" *ngIf="!selectedRole">
+    <p class="role-text">Select your role:</p>
+    <div class="role-buttons">
+      <button class="role-btn customer" (click)="selectRole('customer')">
+        <div class="role-icon">👤</div>
+        <span>Customer</span>
+      </button>
+      <button class="role-btn washer" (click)="selectRole('washer')">
+        <div class="role-icon">🧽</div>
+        <span>Washer</span>
+      </button>
+    </div>
+  </div>
+  
+  <div class="registration-form" *ngIf="selectedRole">
+    <div class="selected-role">
+      <span class="role-badge">{{ selectedRole | titlecase }}</span>
+      <button class="change-role-btn" (click)="selectedRole = ''">Change</button>
+    </div>
+    
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label class="form-label">Username</label>
+        <input 
+          type="text" 
+          class="form-input" 
+          [(ngModel)]="formData.username" 
+          name="username"
+          placeholder="Enter your username"
+          required>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input 
+          type="email" 
+          class="form-input" 
+          [(ngModel)]="formData.email" 
+          name="email"
+          placeholder="Enter your email"
+          required>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">Phone Number</label>
+        <input 
+          type="tel" 
+          class="form-input" 
+          [(ngModel)]="formData.phone" 
+          name="phone"
+          placeholder="Enter your phone number"
+          required>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input 
+          type="password" 
+          class="form-input" 
+          [(ngModel)]="formData.password" 
+          name="password"
+          placeholder="Create a password"
+          required>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">Confirm Password</label>
+        <input 
+          type="password" 
+          class="form-input" 
+          [(ngModel)]="formData.confirmPassword" 
+          name="confirmPassword"
+          placeholder="Confirm your password"
+          required>
+      </div>
+      
+     <button 
+  type="submit" 
+  class="btn btn-primary register-btn">
+  Register as {{ selectedRole | titlecase }}
+</button>
+
+    </form>
+<!-- Add these after the form -->
+<div class="success-message" *ngIf="successMessage">{{ successMessage }}</div>
+<div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+    
+
+  </div>
+</div>

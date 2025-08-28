@@ -1,0 +1,191 @@
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  min-width: 320px;
+  z-index: 1001;
+  border: 1px solid #e5e7eb;
+}
+.error-message {
+  color: red;
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  
+  h3 {
+    margin: 0;
+    color: #1f2937;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #6b7280;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: #f3f4f6;
+      color: #374151;
+    }
+  }
+}
+
+.role-selection {
+  .role-text {
+    margin-bottom: 1rem;
+    color: #6b7280;
+    font-weight: 500;
+  }
+  
+  .role-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    
+    .role-btn {
+      padding: 0.75rem 1rem;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      background: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      
+      .role-icon {
+        font-size: 1.25rem;
+      }
+      
+      span {
+        font-weight: 500;
+        color: #374151;
+      }
+      
+      &:hover {
+        border-color: #3b82f6;
+        background: #f0f9ff;
+      }
+      
+      &.admin:hover {
+        border-color: #dc2626;
+        background: #fef2f2;
+      }
+      
+      &.washer:hover {
+        border-color: #10b981;
+        background: #f0fdf4;
+      }
+      
+      &.customer:hover {
+        border-color: #3b82f6;
+        background: #eff6ff;
+      }
+    }
+  }
+}
+
+.login-form {
+  .selected-role {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    
+    .role-badge {
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      
+      &.admin {
+        background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+      }
+      
+      &.washer {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      }
+      
+      &.customer {
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+      }
+    }
+    
+    .change-role-btn {
+      background: none;
+      border: none;
+      color: #6b7280;
+      cursor: pointer;
+      font-size: 0.875rem;
+      text-decoration: underline;
+      
+      &:hover {
+        color: #374151;
+      }
+    }
+  }
+  
+  .form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: #6b7280;
+      cursor: pointer;
+      
+      .checkbox {
+        width: 16px;
+        height: 16px;
+        accent-color: #3b82f6;
+      }
+    }
+    
+    .forgot-password {
+      color: #3b82f6;
+      text-decoration: none;
+      font-size: 0.875rem;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  
+  .login-btn {
+    width: 100%;
+    margin-top: 1rem;
+    
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}

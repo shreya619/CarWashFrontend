@@ -1,0 +1,101 @@
+.feature-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.feature-content {
+  flex: 1;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.75rem;
+}
+
+.feature-description {
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.feature-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3b82f6;
+  margin-bottom: 1rem;
+}
+
+.feature-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.875rem;
+    padding: 0.75rem 1rem;
+  }
+  
+  .select-btn {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+    }
+  }
+  
+  .learn-btn {
+    border-color: #e5e7eb;
+    color: #6b7280;
+    
+    &:hover {
+      border-color: #3b82f6;
+      color: #3b82f6;
+      background: #f0f9ff;
+    }
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .feature-card {
+    padding: 1.5rem;
+  }
+  
+  .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .feature-title {
+    font-size: 1.125rem;
+  }
+  
+  .feature-price {
+    font-size: 1.25rem;
+  }
+}

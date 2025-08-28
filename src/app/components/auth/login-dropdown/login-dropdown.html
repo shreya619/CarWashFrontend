@@ -1,0 +1,75 @@
+<div class="dropdown-content slide-down">
+  <div class="dropdown-header">
+    <h3>Sign In</h3>
+    <button class="close-btn" (click)="close()">×</button>
+  </div>
+  
+  <div class="role-selection" *ngIf="!selectedRole">
+    <p class="role-text">Sign in as:</p>
+    <div class="role-buttons">
+      <button class="role-btn admin" (click)="selectRole('admin')">
+        <div class="role-icon">👨‍💼</div>
+        <span>Admin</span>
+      </button>
+      <button class="role-btn washer" (click)="selectRole('washer')">
+        <div class="role-icon">🧽</div>
+        <span>Washer</span>
+      </button>
+      <button class="role-btn customer" (click)="selectRole('customer')">
+        <div class="role-icon">👤</div>
+        <span>Customer</span>
+      </button>
+    </div>
+  </div>
+  
+  <div class="login-form" *ngIf="selectedRole">
+    <div class="selected-role">
+      <span class="role-badge" [class]="selectedRole">{{ selectedRole | titlecase }}</span>
+      <button class="change-role-btn" (click)="selectedRole = ''">Change</button>
+    </div>
+    
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input 
+          type="email" 
+          class="form-input" 
+          [(ngModel)]="formData.email" 
+          name="email"
+          placeholder="Enter your email"
+          required>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input 
+          type="password" 
+          class="form-input" 
+          [(ngModel)]="formData.password" 
+          name="password"
+          placeholder="Enter your password"
+          required>
+      </div>
+      
+      <div class="form-options">
+        <label class="checkbox-label">
+          <input type="checkbox" class="checkbox">
+          <span>Remember me</span>
+        </label>
+        <a href="#" class="forgot-password">Forgot password?</a>
+      </div>
+      
+      <button 
+        type="submit" 
+        class="btn btn-primary login-btn"
+        [disabled]="!isFormValid()">
+        Sign in as {{ selectedRole | titlecase }}
+      </button>
+    </form>
+  </div>
+
+  <div class="error-message" *ngIf="errorMessage">
+  {{ errorMessage }}
+</div>
+
+</div>
