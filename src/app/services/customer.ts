@@ -1,12 +1,5 @@
-/*import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class Customer {
-
-  constructor() { }
-}*/
+import { FormsModule } from '@angular/forms';   // ✅ Import this
 
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -17,7 +10,7 @@ import { Washer } from '../models/washer.model';
 import { FeedbackDTO } from '../models/FeedbackDTO';
 import { RatingRequestDTO } from '../models/RatingRequestDTO';
 import { WasherRatingDTO } from '../models/WasherRatingDTO';
-import { OrderRequestDTO } from '../models/OrderRequestDTO';
+import { Order } from '../models/Order';
 
 @Injectable({
   providedIn: 'root'
@@ -88,12 +81,11 @@ getAllWashers(): Observable<Washer[]> {
 }
 
 // Add this method inside CustomerService
-payForWash(amount: number): Observable<string> {
-  const headers = this.getAuthHeaders();
-  return this.http.post(`${this.baseUrl}/pay?amount=${amount}`, {}, {
-    headers,
-    responseType: 'text' // returns Razorpay order info as string
-  });
+
+// src/app/services/customer.service.ts
+
+ initiatePayment(amount: number): Observable<any> {
+  return this.http.post<any>(`${this.baseUrl}/pay?amount=${amount}`, {});
 }
 
 
@@ -108,37 +100,41 @@ payForWash(amount: number): Observable<string> {
   }
 
 
+  // src/app/services/customer.ts (order-related methods)
+
+// Place order -> expect created Order back
+placeOrder(orderData: any): Observable<any> {
+  const token = localStorage.getItem('token'); // ✅ get token after login
+  const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  return this.http.post(`${this.baseUrl}/place-order`, orderData, { headers });
+}
 
 
-placeOrder(order: OrderRequestDTO): Observable<string> {
-    return this.http.post(`${this.baseUrl}/place-order`, order, {
-      headers: this.getAuthHeaders(),
-      responseType: 'text'
-    });
-  }
+// Get orders (returns array of Orders)
+getOrders(status: string): Observable<Order[]> {
+  return this.http.get<Order[]>(`${this.baseUrl}/orders?status=${status}`, {
+    headers: this.getAuthHeaders()
+  });
+}
 
-  // Get orders filtered by status: unassigned/current/past
-  getOrders(status: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/orders?status=${status}`, {
-      headers: this.getAuthHeaders()
-    });
-  }
+// Update order -> expect updated Order back
+updateOrder(id: number, order: Order): Observable<Order> {
+  return this.http.put<Order>(`${this.baseUrl}/orders/${id}`, order, {
+    headers: this.getAuthHeaders()
+  });
+}
 
-  // Update order
-  updateOrder(id: number, order: OrderRequestDTO): Observable<string> {
-    return this.http.put(`${this.baseUrl}/orders/${id}`, order, {
-      headers: this.getAuthHeaders(),
-      responseType: 'text'
-    });
-  }
+// Delete order -> if backend returns no body, use void; if it returns message, use string
+deleteOrder(id: number): Observable<void> {
+  return this.http.delete<void>(`${this.baseUrl}/orders/${id}`, {
+    headers: this.getAuthHeaders()
+    
+  });
+}
 
-  // Delete order
-  deleteOrder(id: number): Observable<string> {
-    return this.http.delete(`${this.baseUrl}/orders/${id}`, {
-      headers: this.getAuthHeaders(),
-      responseType: 'text'
-    });
-  }
+
+
+
 
 
 

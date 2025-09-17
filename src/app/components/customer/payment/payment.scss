@@ -1,51 +1,56 @@
 .payment-container {
   max-width: 400px;
-  margin: 20px auto;
+  margin: 50px auto;
   padding: 20px;
-  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  text-align: center;
+}
+
+.payment-container h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.payment-container label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.payment-container input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
   border-radius: 8px;
-  background-color: #fafafa;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
 
-  h2 {
-    text-align: center;
-    margin-bottom: 15px;
-  }
+.payment-container button {
+  width: 100%;
+  padding: 12px;
+  background: #4caf50;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
 
-  .form-group {
-    margin-bottom: 15px;
+.payment-container button:hover {
+  background: #43a047;
+}
 
-    label {
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    input {
-      width: 100%;
-      padding: 8px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-    }
-  }
-
-  button {
-    width: 100%;
-    padding: 10px;
-    border-radius: 4px;
-    border: none;
-    background-color: #1976d2;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #1565c0;
-    }
-  }
-
-  .message {
-    margin-top: 15px;
-    text-align: center;
-    color: green;
-    font-weight: bold;
-  }
+.payment-message {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-weight: 500;
 }
